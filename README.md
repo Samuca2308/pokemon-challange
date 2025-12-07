@@ -16,8 +16,9 @@ docker-compose up
 
 ## If that doesn't work...
 
-Well, I'm sorry
-But you can still run the applications individually with the following steps
+Well, I'm sorry.
+But you can still run the applications individually with the following steps.
+
 ```bash
 # Installing necessary packages
 cd pokedex
@@ -37,10 +38,9 @@ npm run start
 
 
 ## Running the Unit Tests
-At this moment only the API has unit tests written with Jest, you can run them with the following commands
-```bash
-cd api
+Both Front End and Back End applications have their own suites of unit testing, you can run them or analyze the coverage using the following commands on either folder.
 
+```bash
 npm run test # for test results
 
 npm run test:cov # for coverage analysis
