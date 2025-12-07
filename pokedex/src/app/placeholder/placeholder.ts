@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './placeholder.html',
   styleUrl: './placeholder.scss',
 })
+
 export class Placeholder {
 
 }

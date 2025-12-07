@@ -1,23 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { Placeholder } from './placeholder';
+import { BrowserTestingModule, platformBrowserTesting } from "@angular/platform-browser/testing";
 
-describe('Placeholder', () => {
+describe('Placeholder Component', () => {
   let component: Placeholder;
   let fixture: ComponentFixture<Placeholder>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeAll(() => {
+    TestBed.initTestEnvironment(BrowserTestingModule, platformBrowserTesting());
+  })
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       imports: [Placeholder]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Placeholder);
     component = fixture.componentInstance;
-    await fixture.whenStable();
   });
 
-  it('should create', () => {
+  it('should create the app component', () => {
     expect(component).toBeTruthy();
   });
 });

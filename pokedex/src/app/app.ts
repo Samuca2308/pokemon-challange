@@ -1,4 +1,3 @@
-// src/app/app.component.ts
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { PokemonService } from './services/pokemon.service';
 import { FormsModule } from '@angular/forms';
@@ -38,7 +37,6 @@ export class App implements OnInit {
       if (typeof data[Symbol.iterator] === 'function') {
         this.pokemons = [...this.pokemons, ...data];
       }
-      this.offset += this.limit;
       this.isLoading = false;
       this.cdRef.detectChanges();
     });
@@ -46,6 +44,11 @@ export class App implements OnInit {
 
   onSearch(query: string): void {
     this.searchQuery = query.toLowerCase();
+    this.loadPokemons();
+  }
+
+  loadMore(): void {
+    this.offset += this.limit;
     this.loadPokemons();
   }
 
