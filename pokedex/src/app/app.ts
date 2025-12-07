@@ -31,11 +31,17 @@ export class App implements OnInit {
     this.loadPokemons();
   }
 
-  loadPokemons(): void {
+  loadPokemons(append: boolean = false): void {
     this.isLoading = true;
     this.pokemonService.getPokemons(this.searchQuery, this.offset, this.limit).subscribe((data) => {
       if (typeof data[Symbol.iterator] === 'function') {
-        this.pokemons = [...this.pokemons, ...data];
+        if (append) {
+          this.pokemons = [...this.pokemons, ...data];
+        } else {
+          this.pokemons = [...data]
+        }
+      } else {
+        this.pokemons = []
       }
       this.isLoading = false;
       this.cdRef.detectChanges();
@@ -43,13 +49,14 @@ export class App implements OnInit {
   }
 
   onSearch(query: string): void {
+    this.offset = 0;
     this.searchQuery = query.toLowerCase();
     this.loadPokemons();
   }
 
   loadMore(): void {
     this.offset += this.limit;
-    this.loadPokemons();
+    this.loadPokemons(true);
   }
 
   routeToPokemon(pokemon: string): void {

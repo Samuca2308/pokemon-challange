@@ -4,10 +4,10 @@ COPY package*.json ./
 COPY pokedex ./pokedex
 COPY api ./api
 RUN if [ ! -d "pokedex/node_modules" ]; then \
-      cd pokedex && npm install; \
+      cd pokedex && npm install --legacy-peer-deps; \
     fi && \
     if [ ! -d "api/node_modules" ]; then \
-      cd api && npm install; \
+      cd api && npm install --legacy-peer-deps; \
     fi
 
 RUN cd pokedex && npm run build

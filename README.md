@@ -22,7 +22,7 @@ But you can still run the applications individually with the following steps.
 ```bash
 # Installing necessary packages
 cd pokedex
-npm install
+npm install --legacy-peer-deps
 cd ../api
 npm install --legacy-peer-deps
 cd ..
