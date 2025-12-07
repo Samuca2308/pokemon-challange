@@ -1,0 +1,46 @@
+@use 'variables';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: variables.$body;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+app-root {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  position: relative;
+  height: calc(100% - 6rem);
+  width: clamp(200px, 86%, 1600px);
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  background-color: variables.$background;
+  border-radius: 10px;
+  outline: #333 solid 2px;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: variables.$primary;
+}
+
+a:hover {
+  text-decoration: underline;
+}

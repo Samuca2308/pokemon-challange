@@ -1,0 +1,32 @@
+services:
+  pokedex:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TARGET: angular
+    working_dir: /app/pokedex
+    volumes:
+      - ./pokedex:/app/pokedex
+    ports:
+      - "4200:4200"
+    network_mode: "host"
+    command: npm start
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - api
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TARGET: nestjs
+    working_dir: /app/api
+    volumes:
+      - ./api:/app/api
+    ports:
+      - "3000:3000"
+    command: npm run start:dev
+    environment:
+      - NODE_ENV=development

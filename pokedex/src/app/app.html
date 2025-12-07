@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="lights">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <h1>Pokémon List</h1>
+  
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    (input)="onSearch(searchQuery)" 
+    placeholder="Search for Pokémon" 
+    class="search-input"
+  />
+
+  <ul class="pokemon-list">
+    @for (pokemon of pokemons; track pokemon) {
+      @if (pokemon.name.toLowerCase().includes(searchQuery)) {
+        <li class="pokemon-list-item" (click)="routeToPokemon(pokemon.name)">{{ pokemon.name }}</li>
+      }
+    }
+  </ul>
+
+  @if (!isLoading) {
+    <button 
+      (click)="loadPokemons()" 
+      class="load-more-btn"
+    >
+      Load More
+    </button>
+  }
+  @else {
+    <div>Loading...</div>
+  }
+
+  <div>
+    <router-outlet />
+  </div>
+</div>

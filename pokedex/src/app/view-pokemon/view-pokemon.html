@@ -1,0 +1,23 @@
+@if (isLoading) {
+    <div >Loading...</div>
+}
+@else if (pokemon) {
+    <div>
+        <h2>{{ pokemon.name | titlecase }}</h2>
+        <div class="flex-container">
+            <h3>Types:</h3>
+            <ul>
+                @for (type of pokemon.types; track type) {
+                    <li>{{ type.type.name | titlecase }}</li>
+                }
+            </ul>
+        </div>
+        <div class="flex-container">
+            <div class="info-container">
+                <p><strong>Height:</strong> {{ pokemon.height }}</p>
+                <p><strong>Weight:</strong> {{ pokemon.weight }}</p>
+            </div>
+            <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" />
+        </div>
+    </div>
+}

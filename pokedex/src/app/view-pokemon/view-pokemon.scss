@@ -1,0 +1,55 @@
+@use '../../variables';
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: variables.$primary;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  display: inline-block;
+  background-color: variables.$primary-light;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 25px;
+  margin: 5px;
+  font-weight: 500;
+}
+
+img {
+  width: 200px;
+  height: auto;
+  padding: 1.5rem;
+  border-radius: 0 20px;
+  margin-top: 20px;
+  border: variables.$primary solid 2px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+
+@media (min-width: 768px) {
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    >ul {
+      margin-left: 1rem;
+    }
+  }
+
+  .info-container {
+    text-align: center;
+    padding: 20px;
+  }
+}
