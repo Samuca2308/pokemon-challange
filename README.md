@@ -49,4 +49,4 @@ npm run test:cov # for coverage analysis
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
